@@ -1,0 +1,139 @@
+<style>
+    .navbar {
+        display: none !important;
+    }
+
+    body{
+        background: linear-gradient(-40deg,
+                #12c2e9,
+                #c471ed,
+                coral,
+                cornflowerblue,
+                #ff0080);
+        
+    }
+    /* body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 150vh;
+        font-family: sans-serif;
+        background: linear-gradient(-40deg,
+                #12c2e9,
+                #c471ed,
+                coral,
+                cornflowerblue,
+                #ff0080);
+        background-size: 200%;
+        animation: gradient 3s linear infinite alternate;
+        
+    } */
+
+    /* @keyframes gradient {
+        0% {
+            background-position: 0%;
+        }
+
+        100% {
+            background-position: 100%;
+        }
+    } */
+
+    .container {
+        justify-content: center;
+        text-align: center;
+        margin-top: 20px;
+        /* border: 1px solid black; */
+    }
+
+    form {
+        padding: 10px;
+
+        background-color: transparent;
+        border-radius: 10px;
+    }
+
+    ul.errorlist {
+        list-style-type: none;
+        display: none;
+    }
+
+    .form_student {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    label {
+        display: none !important;
+    }
+
+    input {
+        width: 40% !important;
+    }
+    #id_Gender{
+        border: 1px solid black;
+        justify-self: center;
+        padding: 10px;
+        display: inline;
+        width: 40%!important;
+    }
+    #id_doc_10{
+        /* border: 1px solid black; */
+        justify-self: center;
+        padding: 10px;
+        display: inline;
+        width: 40%!important;
+        
+    }
+    #id_doc_10 + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: white;
+    background-color: black;
+    display: inline-block;
+}
+
+#id_doc_10:focus + label,
+#id_doc_10 + label:hover {
+    background-color: red;
+}
+    #id_Course_name{
+        border: 1px solid black;
+        justify-self: center;
+        padding: 10px;
+        display: inline;
+        width: 40%!important;
+    }
+
+</style>
+{% extends 'nav.html' %}
+{% block body %}
+<div class="container w-100">
+    
+    <h1 class="btn-warning my-2 fw-bold ">Edit Student </h1>
+
+    <form method="POST" class="col-12 form_student" enctype="multipart/form-data" action="">
+        <div>
+
+            {% csrf_token %}
+            <!-- <input type="text" name="form_name" value="Edit" hidden> -->
+            {% comment %} {{form.media|safe }} {% endcomment %}
+            {{form.as_table|safe }}
+        </div>
+
+
+
+        
+        <div class="modal-footer">
+            <a href="/admin-student " class="btn btn-danger">Cancel</a>
+            <button type="submit" class="btn btn-primary">Add Student</button>
+        </div>
+    </div>
+</form>
+
+
+</div>
+{% endblock %}

@@ -1,0 +1,72 @@
+<style>
+    .navbar{
+        display: none!important;
+    }
+    body{
+        background-image: linear-gradient(to bottom, rgb(139, 226, 238) , rgb(47, 89, 97) ,rgb(0, 0, 0));
+        /* background-color: paleturquoise!important ; */
+    }
+    .container{
+        justify-content: center;
+        text-align: center;
+        margin-top: 20px;
+        /* border: 1px solid black; */
+    }
+    form{
+        padding: 10px;
+        
+        background-color: #4d868f;
+        border-radius: 10px;
+    }
+    
+</style>
+{% extends 'nav.html' %}
+{% block body %}
+   <div class="container">
+    <h1 class="btn-warning my-2">Edit Course </h1>
+
+       <form  method="POST" class="col-md-6 form-control " enctype="multipart/form-data"  action="" >
+           {% csrf_token %}
+           <input type="hidden" name="form_name" value="Edit" >
+           {{form.media|safe  }}
+           {{form|safe }}
+           
+           
+           {% comment %} <label for="course_name" class="mb-0">Course Name</label>
+           <input type="text" class="w-100 p-2 mb-4 col-6" value="{{ID.Course_name}}" id="course_name" name="Name_edit"
+           placeholder="Course Name" required>
+           <label for="course_details" class="mb-0 ">Course Details</label>
+           <input type="text" class="w-100 p-2 mb-4 col-6" id="course_details" name="course_details" disabled
+           placeholder="Course Details">
+           <label for="exampleInputFile">File input</label>
+            <div class="input-group">
+            <div class="custom-file">
+            <input type="file" name="photo" class="custom-file-input border-1" id="exampleInputFile">
+            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+            </div>
+            <div class="input-group-append">
+            <span class="input-group-text">Upload</span>
+              </div>
+                 </div>
+           <label for="course_price" class="mb-0 ">Course Price</label>
+           <input type="text" class="w-100 p-2 col-6" value="{{ID.Price}}" id="course_price" name="price_edit"
+           placeholder="Course Price" required>
+           <label for="course_price" class="mb-0 ">Course Duration</label>
+           <input type="text" class="w-100 p-2 col-6" value="{{ID.Price}}" id="course_price" name="price_edit"
+           placeholder="Course Price" required>
+            {% endcomment %}
+           
+           <!-- <button type="submit" class="w-100 btn btn-success">add</button> -->
+           
+           
+           <div class="modal-footer">
+               <a href="/courses_table" class="btn btn-danger">Cancel</a>
+               <button type="submit" class="btn btn-primary">Update</button>
+           </div>
+        </div>
+    </form>
+    
+    
+</div> 
+{% endblock %}
+   

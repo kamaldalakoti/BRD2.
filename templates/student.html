@@ -1,0 +1,119 @@
+<!-- <style>
+.dashboard1{
+    display : none;
+}
+
+</style> -->
+{% extends 'admintm\admin-nav.html' %}
+{% block body %}
+<!-- Main content -->
+<section class="content">
+  <div class="container-fluid">
+    <!-- Small boxes (Stat box) -->
+    <div class="row">
+      <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+        <div class="card">
+          <div class="card-header p-3 pt-2">
+            <div class="icon icon-lg icon-shape bg-gradient-danger shadow-dark text-center border-radius-xl mt-n4 position-absolute">
+              <i class="material-icons opacity-10">weekend</i>
+            </div>
+            <div class="text-end pt-1">
+              <p class="text-sm mb-0 text-capitalize">ADD</p>
+              <h4 class="mb-0">{{no_of_courses}}</h4>
+            </div>
+          </div>
+          <hr class="dark horizontal my-0">
+          <div class="card-footer p-3">
+            <a href="add-student"><p class="mb-0 text-center bg-gradient-danger border-radius-xl text-white"><i class="fas fa-user mr-5" style="padding-right: 15px;"></i><span class="text-success text-sm font-weight-bolder"></span>Add Student</p></a>
+          </div>
+        </div>
+      </div>
+     
+      <!-- ./col -->
+      <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+        <div class="card">
+          <div class="card-header p-3 pt-2">
+            <div class="icon icon-lg icon-shape bg-gradient-primary shadow-success text-center border-radius-xl mt-n4 position-absolute">
+              <i class="material-icons opacity-10">weekend</i>
+            </div>
+            <div class="text-end pt-1">
+              <p class="text-sm mb-0 text-capitalize">MANAGE</p>
+            </div>
+          </div>
+          <hr class="dark horizontal my-0">
+          <div class="card-footer p-3">
+            <a href="/admin-manage_student"><p class="mb-0 text-center bg-gradient-primary border-radius-xl text-white"><i class="fas fa-user mr-5" style="padding-right: 15px;"></i><span class="text-success text-sm font-weight-bolder"></span>Manage Students</p></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+        <div class="card">
+          <div class="card-header p-3 pt-2">
+            <div class="icon icon-lg icon-shape bg-gradient-success shadow-dark text-center border-radius-xl mt-n4 position-absolute">
+              <i class="material-icons opacity-10">weekend</i>
+            </div>
+            <div class="text-end pt-1">
+              <p class="text-sm mb-0 text-capitalize">NEW STUDENTS</p>
+              <h4 class="mb-0">{{ no_of_u }}</h4>
+            </div>
+          </div>
+          <hr class="dark horizontal my-0">
+          <div class="card-footer p-3">
+            <a href="/admin_new_student"><p class="mb-0 text-center bg-gradient-success border-radius-xl text-white"><i class="fas fa-user mr-5" style="padding-right: 15px;"></i><span class="text-success text-sm font-weight-bolder"></span>Manage Students</p></a>
+          </div>
+        </div>
+      </div>
+      
+      
+      
+      <!-- ./col -->
+      {% comment %} <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-danger">
+          <div class="inner">
+            <h3>65</h3>
+
+            <p>Unique Visitors</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-pie-graph"></i>
+          </div>
+          <a href="user_details" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+      </div> {% endcomment %}
+      <!-- <div class="col-lg-3 col-6">
+        
+        <div class="small-box bg-danger">
+          <div class="inner">
+            <h3>{{ no_of_u }}</h3>
+
+            <p>Course Subscribers</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-pie-graph"></i>
+          </div>
+          <a href="user_details" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+      </div> -->
+      <!-- ./col -->
+      <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+        <div class="card">
+          <div class="card-header p-3 pt-2">
+            <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
+              <i class="material-icons opacity-10">weekend</i>
+            </div>
+            <div class="text-end pt-1">
+              <p class="text-sm mb-0 text-capitalize">COURSE SUSCRIBERS</p>
+              <h4 class="mb-0">{{ no_of_u }}</h4>
+            </div>
+          </div>
+          <hr class="dark horizontal my-0">
+          <div class="card-footer p-3">
+            <a href="/admin_paid_student"><p class="mb-0 text-center bg-gradient-dark border-radius-xl text-white"><i class="fas fa-user mr-5" style="padding-right: 15px;"></i><span class="text-white text-sm font-weight-bolder"></span>Manage Oourses</p></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+</section>
+{% endblock %}

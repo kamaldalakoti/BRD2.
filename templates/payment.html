@@ -1,0 +1,134 @@
+<style>
+  .PaymentButton--rzp-light-standard.svelte-ekc7fv.svelte-ekc7fv {
+    background: #fff;
+    border-color: #fff;
+  }
+
+  .PaymentButton--light.svelte-ekc7fv.svelte-ekc7fv {
+    color: black !important;
+  }
+
+  .PaymentButton--rzp-light-standard.svelte-ekc7fv.svelte-ekc7fv::before {
+    box-shadow: 2px 0 4px rgb(0 0 0 / 15%);
+  }
+
+  .PaymentButton--rzpTheme.svelte-ekc7fv.svelte-ekc7fv::before {
+    content: '';
+    position: absolute;
+    background: #1e40a0;
+    border-radius: 2px 0 0 2px;
+    transform: skew(-15deg, 0);
+  }
+</style>
+{% extends 'nav.html' %}
+{% comment %} {% extends 'accounts/base.html' %} {% endcomment %}
+
+{% comment %} {% block content %} {% endcomment %}
+{% block body %}
+
+<!-- /.row -->
+
+<div class="row">
+  <!-- accepted payments column -->
+  <div class="col-6">
+    <p class="lead">Payment Methods:</p>
+    <img src="static/dist/img/credit/visa.png" alt="Visa">
+    <img src="static/dist/img/credit/mastercard.png" alt="Mastercard">
+    <img src="static/dist/img/credit/american-express.png" alt="American Express">
+    <img src="static/dist/img/credit/paypal2.png" alt="Paypal">
+
+    <p class="text-muted well well-sm shadow-none" style="margin-top: 10px;">
+      <b>{{course}} </b>
+      Courses Across 2,100+ Topics Taught by Global Instructors. Try a Free Demo. Upskill Your Employees With Online
+      Training & Stay Ahead of the Competition. Drive Employee Engagement. Prepare Your Workforce. Empower Your Team.
+    </p>
+  </div>
+  <!-- /.col -->
+  <div class="col-6">
+    <p class="lead">{{Date}}</p>
+
+    <div class="table-responsive">
+      <table class="table">
+        <tr>
+          <th style="width:50%">Course Fee:</th>
+          <td>{{Price}}</td>
+        </tr>
+        <tr>
+          <th>Course</th>
+          <td>{{course}}</td>
+        </tr>
+        <tr>
+
+          <th>Tax (18.0%)</th>
+          <td>{{tax}}</td>
+        </tr>
+
+        <tr>
+          <th>Total:</th>
+          <td>{{order_amount}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <!-- /.col -->
+</div>
+<!-- /.row -->
+<form action="Payment" method="post" class="mx-5">
+  {% csrf_token %}
+  <!-- <div>  
+        </div> -->
+
+
+
+
+  <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_ImNRjOiCAT0eal"
+    async> </script>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script>
+    var options = {
+      "key": "{{API_KEY}}", // Enter the Key ID generated from the Dashboard
+      "amount": "{{order_amount}}", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+      "currency": "INR",
+      "name": "BRD PVLT",
+      "description": "Test Transaction",
+      "image": "https://example.com/your_logo",
+      "order_id": "{{order_id}}", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+      "handler": function (response) {
+        alert(response.razorpay_payment_id);
+        alert(response.razorpay_order_id);
+        alert(response.razorpay_signature)
+      },
+      "prefill": {
+        "name": "{{user_info.Name}}",
+        "email": "{{user_info.Email}}",
+        "contact": "{{user_info.Number}}"
+      },
+      "notes": {
+        "address": "Razorpay Corporate Office"
+      },
+      "theme": {
+        "color": "#3399cc"
+      }
+    };
+    var rzp1 = new Razorpay(options);
+    rzp1.on('payment.failed', function (response) {
+      alert(response.error.code);
+      alert(response.error.description);
+      alert(response.error.source);
+      alert(response.error.step);
+      alert(response.error.reason);
+      alert(response.error.metadata.order_id);
+      alert(response.error.metadata.payment_id);
+    });
+    document.getElementById('rzp-button1').onclick = function (e) {
+      rzp1.open();
+      e.preventDefault();
+    }
+  </script>
+
+</form>
+<!-- </form> -->
+
+
+
+{% endblock %}

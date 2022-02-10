@@ -1,0 +1,84 @@
+
+
+{% extends 'admintm\admin-nav.html' %}
+{% block body %}
+<section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+        
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Courses List Add More Courses</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Selected Course </th>
+                    <th>Course Price</th>
+                    <th>Number</th>
+                    <th>Number2</th>
+                    <th>Date</th>
+                    <th>Aadhaar</th>
+                    <th>Gender</th>
+                    <th>Father's Name</th>
+                    <th>Education</th>
+                    <th>State</th> 
+                    <th>City</th> 
+                    <th>House</th> 
+                    <th>Post_office</th> 
+                    <th>Block</th> 
+                    <th>District</th> 
+                    <th>Pincode</th> 
+                    <th>Locality</th> 
+                  </tr>
+                  </thead>  
+                  <tbody>
+                  {% for item in user_details %}
+                  <tr>
+                    <td>{{item.Name}}</td>
+                    
+                    
+                    <td>{{item.Email}}</td>
+                    <td>{{item.Course_name}}</td>
+                    <td>{{item.Course_name.Price}}</td>
+                    <td>{{item.Number}}</td>
+                    <td>{{item.Number2}}</td>
+                    <td>{{item.Date}}</td>
+                    <td>{{item.Aadhaar}}</td>
+                    <td>{{item.Gender}}</td>
+                    <td>{{item.Father}}</td>
+                    <td>{{item.Education}}</td>
+                    <td>{{item.State}}</td> 
+                    <td>{{item.City}}</td> 
+                    <td>{{item.House}}</td> 
+                    <td>{{item.Post_office}}</td> 
+                    <td>{{item.Block}}</td> 
+                    <td>{{item.District}}</td> 
+                    <td>{{item.Pincode}}</td> 
+                    <td>{{item.Locality}}</td> 
+                  </tr>
+                  {% endfor %}
+
+                    
+                  
+                  </tbody>
+                  
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+
+{% endblock %}

@@ -1,0 +1,49 @@
+<style>
+  .sidebar {
+    display: none;
+  }
+</style>
+{% extends 'admintm\admin-nav.html' %}
+{% block body %}
+<div class="card-body">
+  <table id="example1" class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Course Name</th>
+        <!-- <th>Delete</th> -->
+        <th colspan="">Payment Status</th>
+
+
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in student %}
+      <tr>
+        <td>{{item.Name}}</td>
+        <td>{{item.Email|safe}}
+        </td>
+        <td>{{item.Course_name}}</td>
+        <td>{{item.Payment}}</td>
+
+
+
+
+
+
+
+      </tr>
+      {% endfor %}
+
+
+
+    </tbody>
+
+  </table>
+</div>
+<!-- /.card-body -->
+  
+
+
+{% endblock %}

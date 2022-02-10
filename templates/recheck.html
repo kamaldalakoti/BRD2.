@@ -1,0 +1,119 @@
+
+<style>
+    body {
+        background-image: url('https://cdn.pixabay.com/photo/2015/07/17/22/43/student-849822_1280.jpg');
+        /* background: linear-gradient(to right, rgb(166, 240, 240), rgb(111, 157, 172)); */
+    }
+    
+    .container1 {
+        /* border: 1px solid black; */
+        text-align: center;
+        padding-top: 10px;
+    }
+    
+    .container1 h1 {
+        color: white;
+    }
+    
+    .div_2 {
+        display: flex;
+        flex-direction: column; 
+        padding: 100px;
+        padding-top: 3px;
+        /* border: 2px solid black; */
+    }
+    .input_box{
+        background-color: antiquewhite!important;
+        text-decoration: none;
+
+    }
+    
+</style>
+{% extends 'nav.html' %}
+{% block body %}
+
+
+    <div class="container container1">
+        <h1>
+            Confirm Details
+        </h1>
+        <div class="div_2">
+            <form action="Recheck" class="container" method="POST">
+                {% csrf_token %}
+                <div class="form-floating mb-3">
+                    <input type="text" name="name_re" class="form-control input_box" value={{name_b}} id="floatingInput" placeholder="{{name}}">
+                    <label for="floatingInput">Name</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="phone" maxlength="13" name="number_re" value='{{number_b}}' class="form-control input_box" id="floatingInput" placeholder="">
+                    <label for="floatingInput">Mobile No.</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="email" readonly name="email_re" value='{{email_b}}' class="form-control input_box" id="floatingInput" placeholder="">
+                    <label for="floatingInput">Email address</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" readonly name="course" value="{{course}}" class="form-control input_box" id="floatingInput" placeholder="">
+                    <label for="floatingInput">Course Name</label>
+                </div> 
+                <div class="form-floating mb-3">
+                    <input type="text" readonly name="price" value="{{course_price}}" class="form-control input_box" id="floatingInput" placeholder="">
+                    <label for="floatingInput">Price</label>
+                </div> 
+                
+                
+
+
+                <p id="demo"></p>
+                
+
+
+
+                    <div class="row px-2">
+                    <div class="col">
+                        <button class="btn btn-primary w-100">Update</button>
+                        
+                    </div>
+                    <div class="col">
+                        <a href="/Payment" class="btn btn-success w-100">Pay Now</a>
+                        
+                    </div>
+                    <div class="col">
+                        <a href="/" style="text-decoration: none;" class="btn btn-danger w-100"> Cancel </a>
+
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <script>
+        function getvalue() {
+
+
+            var selectvalue1 = document.getElementById('selectvalue').value;
+            console.log(selectvalue1)
+            if (selectvalue1 == '10th') {
+                document.getElementById('inputGroupFile01').style.display = 'block'
+                document.getElementById('inputGroupFile02').style.display = 'none'
+                document.getElementById('inputGroupFile03').style.display = 'none'
+                // document.getElementsByClassName('10thfile').style.display = 'block';
+                // document.getElementsByClassName('12thfile')[0].style.display = 'none';
+                // document.getElementsByClassName('ugfile')[0].style.display = 'none';
+            }
+            else if (selectvalue1 == '10+2') {
+
+                document.getElementById('inputGroupFile01').style.display = 'block'
+                document.getElementById('inputGroupFile02').style.display = 'block'
+                document.getElementById('inputGroupFile03').style.display = 'none'
+            }
+            else if (selectvalue1 == 'graduation') {
+                document.getElementById('inputGroupFile01').style.display = 'block'
+                document.getElementById('inputGroupFile02').style.display = 'block'
+                document.getElementById('inputGroupFile03').style.display = 'block'
+
+            }
+
+        }
+    </script>
+{% endblock %}

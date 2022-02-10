@@ -1,0 +1,9 @@
+<div id="contact" class="tab-pane" role="tabpanel" aria-labelledby="contact-tab">
+                <form enctype="multipart/form-data" method="post">
+                  <input type="hidden" name="form_name" value="ADD">
+                  {% csrf_token %}
+                  {{ form.media|safe}}
+                  {{ form.as_table|safe}}
+                  <button type="submit" class="btn btn-danger">submit</button>
+                </form>
+              </div>

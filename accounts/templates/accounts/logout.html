@@ -1,0 +1,44 @@
+<style>
+    body{
+        background: linear-gradient(to right, black, rgb(100, 210, 243));
+        color: white;
+    }
+    .container1{
+        background: linear-gradient(to right, rgb(43, 212, 241), rgb(204, 90, 219));
+        justify-content: center;
+        text-align: center;
+        border: 2px solid wheat;
+        margin-top: 20px;
+        border-radius: 40px;
+    }
+    
+</style>
+{% extends 'nav.html' %}
+{% comment %} {% extends 'accounts/base.html' %} {% endcomment %}
+{% comment %} {% block content %} {% endcomment %}
+{% block body%}
+
+{% if error %}
+{{ error }}
+
+<br/>
+<br/>
+{% endif %}
+
+<div class="container container1">
+
+<h1>Logout!</h1>
+
+<form method = "POST" action="{% url 'logout' %}">
+    {% csrf_token %}
+    
+    <input class ="btn btn-primary" type="submit" value= "Logout" />
+    <br/>
+
+
+
+</form>
+</div>
+
+{% endblock %}
+

@@ -1,0 +1,33 @@
+<style>
+    .navbar{
+        display: none!important;
+    }
+    body{
+        background-image: linear-gradient(to bottom, rgb(139, 226, 238) , rgb(47, 89, 97) ,rgb(0, 0, 0));
+        /* background-color: paleturquoise!important ; */
+    }
+    .container{
+        justify-content: center;
+        text-align: center;
+        margin-top: 20px;
+        /* border: 1px solid black; */
+    }
+</style>
+{% extends 'nav.html' %}
+{% block body %}
+
+
+<div class="container">
+    <h1 class="btn-warning">Are you sure ! </h1>
+
+    <form  method="POST" action="">
+        {% csrf_token %}
+        <input type="text" name="ID" value="{{DELETE.id}}" hidden>
+        <!-- <h4>{{DELETE.Course_name}}</h4> -->
+        <a href="/admin-manage_student"  class="btn btn-warning"> Cancel</a>
+        <button type="submit" class="btn btn-danger"> Delete</button>
+        
+    </form>
+    
+</div>
+{% endblock %}

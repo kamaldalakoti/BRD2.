@@ -1,0 +1,49 @@
+<style>
+    .navbar{
+        display: none!important;
+    }
+    /* body{ */
+        /* background-image: linear-gradient(to bottom, rgb(139, 226, 238) , rgb(47, 89, 97) ,rgb(0, 0, 0)); */
+        /* background-color: paleturquoise!important ; */
+    /* } */
+    .container{
+        justify-content: center;
+        text-align: center;
+        margin-top: 20px;
+        /* border: 1px solid black; */
+    }
+    form{
+        padding: 10px;
+        
+        /* background-color: #4d868f; */
+        /* background-color: red; */
+        border-radius: 10px;
+    }
+    
+</style>
+{% extends 'nav.html' %}
+{% block body %}
+   <div class="container">
+    <h1 class="btn-warning my-2">Add Lecture </h1>
+
+       <form  method="POST" class="row" enctype="multipart/form-data"  action="" >
+           {% csrf_token %}
+           <input type="hidden" name="form_name" value="Edit" >
+           {{form.media|safe  }}
+           {{form.as_p|safe }}
+           
+          
+           <!-- <button type="submit" class="w-100 btn btn-success">add</button> -->
+           
+           
+           <div class="modal-footer">
+               <a href="/Lecture-home" class="btn btn-danger">Cancel</a>
+               <button type="submit" class="btn btn-primary">Add</button>
+           </div>
+        </div>
+    </form>
+    
+    
+</div> 
+{% endblock %}   
+   

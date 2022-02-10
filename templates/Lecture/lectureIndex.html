@@ -1,0 +1,70 @@
+
+
+{% extends 'admintm\admin-nav.html' %}
+{% block body %}
+<!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+          <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+            <div class="card">
+              <div class="card-header p-3 pt-2">
+                <div class="icon icon-lg icon-shape bg-gradient-danger shadow-dark text-center border-radius-xl mt-n4 position-absolute">
+                  <i class="material-icons opacity-10">weekend</i>
+                </div>
+                <div class="text-end pt-1">
+                  <p class="text-sm mb-0 text-capitalize">Add Lecture</p>
+                  <h4 class="mb-0">New</h4>
+                </div>
+              </div>
+              <hr class="dark horizontal my-0">
+              <div class="card-footer p-3">
+                <a href="/Lecture"><p class="mb-0 text-center bg-gradient-danger border-radius-xl text-white"><i class="fas fa-user mr-5" style="padding-right: 15px;"></i><span class="text-success text-sm font-weight-bolder"></span>Add Lecture</p></a>
+              </div>
+            </div>
+          </div>
+         
+          <!-- ./col -->
+          <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+            <div class="card">
+              <div class="card-header p-3 pt-2">
+                <div class="icon icon-lg icon-shape bg-gradient-primary shadow-success text-center border-radius-xl mt-n4 position-absolute">
+                  <i class="material-icons opacity-10">weekend</i>
+                </div>
+                <div class="text-end pt-1">
+                  <p class="text-sm mb-0 text-capitalize">Manage Lecture</p>
+                  <h4 class="mb-0">{{LectureCount}}</h4>
+                </div>
+              </div>
+              <hr class="dark horizontal my-0">
+              <div class="card-footer p-3">
+                <a href="/Manage-Lecture"><p class="mb-0 text-center bg-gradient-primary border-radius-xl text-white"><i class="fas fa-user mr-5" style="padding-right: 15px;"></i><span class="text-success text-sm font-weight-bolder"></span>Manage Lecture</p></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+            <div class="card">
+              <div class="card-header p-3 pt-2">
+                <div class="icon icon-lg icon-shape bg-gradient-success shadow-dark text-center border-radius-xl mt-n4 position-absolute">
+                  <i class="material-icons opacity-10">weekend</i>
+                </div>
+                <div class="text-end pt-1">
+                  <p class="text-sm mb-0 text-capitalize">Lecture any</p>
+                  <h4 class="mb-0">Any</h4>
+                </div>
+              </div>
+              <hr class="dark horizontal my-0">
+              <div class="card-footer p-3">
+                <a href="#"><p class="mb-0 text-center bg-gradient-success border-radius-xl text-white"><i class="fas fa-user mr-5" style="padding-right: 15px;"></i><span class="text-success text-sm font-weight-bolder"></span>Manage Any</p></a>
+              </div>
+            </div>
+          </div>
+          
+          
+          
+        </div>
+        
+    </section>
+
+{% endblock %}
